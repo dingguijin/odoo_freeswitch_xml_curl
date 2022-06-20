@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+  <record id="freeswitch_xml_curl_freeswitch" model="freeswitch_xml_curl.freeswitch">
+    <field name="name">Local Freeswitch Test Node</field>
+    <field name="freeswitch_ip">127.0.0.1</field>
+    <field name="freeswitch_hostname">guijin-mbp-16</field>
+    <field name="freeswitch_password">ppmessage</field>
+    <field name="is_active" eval="True"></field>
+  </record>
+</odoo>

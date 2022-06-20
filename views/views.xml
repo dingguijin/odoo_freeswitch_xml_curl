@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- Views -->
+    <record id="freeswitch_view_tree" model="ir.ui.view">
+      <field name="name">freeswitch_xml_curl.freeswitch.view.tree</field>
+      <field name="model">freeswitch_xml_curl.freeswitch</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="freeswitch_hostname"/>
+          <field name="freeswitch_ip"/>
+          <field name="freeswitch_password"/>
+          <field name="is_active"/>
+          <field name="is_online"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="open_view_freeswitch_list" model="ir.actions.act_window">
+      <field name="name">Freeswitchs</field>
+      <field name="res_model">freeswitch_xml_curl.freeswitch</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem
+        id="menu_freeswitch_xml_curl_root"
+        name="Freeswitch"
+        web_icon="freeswitch_xml_curl/static/description/icon.png"
+        sequence="75"/>
+    
+    <menuitem
+        id="menu_all_freeswitchs"
+        name="All Freeswitchs"
+        parent="menu_freeswitch_xml_curl_root"
+        action="open_view_freeswitch_list"
+        sequence="0"/>
+    
+  </data>
+</odoo>
