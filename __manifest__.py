@@ -8,6 +8,8 @@
     =========================
     
     """,
+    'currency': 'USD',
+    'price': '1024',
     'version': '1.0',
     'depends': ['web'],
     'data': [

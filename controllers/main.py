@@ -115,11 +115,11 @@ class FreeSwitchXmlCurl(http.Controller):
     def _acl_conf(self):
         _content = """
 <network-lists>
-<list name="lan" default="allow">
-<node type="deny" cidr="192.168.42.0/24"/>
-<node type="allow" cidr="192.168.42.42/32"/>
-<node type="allow" cidr="192.168.50.79/32"/>
+<list name="lan" default="deny">
 </list>
+<list name="loopback.auto" default="allow">
+</list>
+
 <list name="domains" default="deny">
 <node type="allow" domain="$${domain}"/>
 </list>
@@ -141,8 +141,6 @@ class FreeSwitchXmlCurl(http.Controller):
 <param name="listen-ip" value="::"/>
 <param name="listen-port" value="8021"/>
 <param name="password" value="%s"/>
-<param name="apply-inbound-acl" value="lan"/>
-<param name="apply-inbound-acl" value="loopback.auto"/>
 </settings>
 """
         _content = _content % _password
