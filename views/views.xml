@@ -59,6 +59,33 @@
       </field>
     </record>
 
+    <record id="agent_view_tree" model="ir.ui.view">
+      <field name="name">freeswitch_xml_curl.agent.view.tree</field>
+      <field name="model">res.users</field>
+      <field name="arch" type="xml">
+        <tree js_class="agent_list">
+          <field name="name" />
+          <field name="sip_number" />
+          <field name="sip_register_status" />
+          <field name="sip_phone_status" />
+          <field name="sip_agent_status" />
+          <field name="sip_phone_user_agent" />
+          <field name="sip_agent_status" />
+          <field name="sip_phone_ip" />
+          <field name="sip_auth_realm" />
+          <field name="sip_phone_last_seen" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="supervisor_view_tree" model="ir.ui.view">
+      <field name="name">freeswitch_xml_curl.supervisor.view.tree</field>
+      <field name="model">res.users</field>
+      <field name="arch" type="xml">
+        <tree>
+        </tree>
+      </field>
+    </record>
 
     <record id="open_view_freeswitch_list" model="ir.actions.act_window">
       <field name="name">Freeswitchs</field>
@@ -66,10 +93,22 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="open_view_agents_list" model="ir.actions.act_window">
+      <field name="name">Agents</field>
+      <field name="res_model">res.users</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="open_view_supervisors_list" model="ir.actions.act_window">
+      <field name="name">Supervisors</field>
+      <field name="res_model">res.users</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Menus -->
     <menuitem
         id="menu_freeswitch_xml_curl_root"
-        name="Freeswitch"
+        name="CallCenter"
         web_icon="freeswitch_xml_curl/static/description/icon.png"
         sequence="75"/>
     
@@ -79,6 +118,20 @@
         parent="menu_freeswitch_xml_curl_root"
         action="open_view_freeswitch_list"
         sequence="0"/>
-    
+
+    <menuitem
+        id="menu_all_agents"
+        name="All Agents"
+        parent="menu_freeswitch_xml_curl_root"
+        action="open_view_agents_list"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_all_supervisors"
+        name="All SuperVisors"
+        parent="menu_freeswitch_xml_curl_root"
+        action="open_view_supervisors_list"
+        sequence="2"/>
+
   </data>
 </odoo>

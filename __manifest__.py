@@ -20,6 +20,7 @@
     ],
     'assets': {
         'web.assets_backend': [
+            'odoo_freeswitch_xml_curl/static/src/js/agent_list.js'
         ],
         'web.assets_qweb': [
         ],
