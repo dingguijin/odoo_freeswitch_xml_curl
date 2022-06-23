@@ -2,6 +2,47 @@
 <odoo>
   <data>
 
+    <record id="sip_view_users_form" model="ir.ui.view">
+      <field name="name">sip.res.users.form</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//notebook/page[1]" position="after">
+          <page string="CallCenter User" name="callcenter_user">
+            <group>
+              <group>
+                <field name="sip_number" />
+              </group>
+              <group>
+                <field name="sip_password" />
+              </group>            
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+
+    <record id="sip_view_res_users_preferences_form" model="ir.ui.view">
+      <field name="name">sip.res.users.preferences_form</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_form_simple_modif" />
+      <field name="arch" type="xml">
+        <xpath expr="//notebook/page[1]" position="after">
+          <page string="CallCenter User" name="callcenter_user" groups="odoo_freeswitch_xml_curl.group_sip_user">
+            <group>
+              <group>
+                <field name="sip_number" />
+              </group>
+              <group>
+                <field name="sip_password" />
+              </group>            
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
     <!-- Views -->
     <record id="freeswitch_view_tree" model="ir.ui.view">
       <field name="name">freeswitch_xml_curl.freeswitch.view.tree</field>
