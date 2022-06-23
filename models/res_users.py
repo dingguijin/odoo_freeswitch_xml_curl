@@ -19,3 +19,6 @@ class ResUsers(models.Model):
 
     sip_phone_ip = fields.Char('Sip Phone IP', required=False, readonly=True)
     sip_auth_realm = fields.Char('Sip Auth Realm', required=False, readonly=True)
+
+    user_agent_ip = fields.Char('User Agent IP', required=False, readonly=True)
+    user_agent_last_seen = fields.Datetime('User Agent Last Seen', required=False, readonly=True)
