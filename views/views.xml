@@ -70,7 +70,6 @@
           <field name="sip_phone_status" />
           <field name="sip_agent_status" />
           <field name="sip_phone_user_agent" />
-          <field name="sip_agent_status" />
           <field name="sip_phone_ip" />
           <field name="sip_auth_realm" />
           <field name="sip_phone_last_seen" />

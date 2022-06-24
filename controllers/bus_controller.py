@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 
 class BusController(main.BusController):
 
-    @route('/longpolling/poll', type="json", auth="public")
+    @http.route('/longpolling/poll', type="json", auth="public")
     def poll(self, channels, last, options=None):
         if http.request.env.user.has_group('odoo_freeswitch_xml_curl.group_sip_user'):
             ip_address = http.request.httprequest.remote_addr
