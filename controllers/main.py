@@ -949,7 +949,7 @@ class FreeSwitchXmlCurl(http.Controller):
         return _template
 
     @http.route('/freeswitch_xml_curl/dialplan', type='http', auth='none', csrf=False)
-    def dialplan(self):
+    def dialplan(self, *args, **kwargs):
         _logger.info("DIALPLAN for [%s], [%s]" % (http.request.params["Caller-Caller-ID-Name"],
                                                   http.request.params["Caller-Context"]))
 
@@ -992,6 +992,13 @@ class FreeSwitchXmlCurl(http.Controller):
         if self._is_action_matched("message-count"):
             return _EMPTY_XML
 
+        if http.request.params.get("Event-Name") == "REQUEST_PARAMS":
+            _logger.error("DIRECTORY REQUEST_PARAMS: [%s] [%s] [%s]" % (
+                http.request.params["user"],
+                http.request.params["domain"],
+                http.request.params["Core-UUID"]))
+            return _EMPTY_XML
+        
         _logger.error(">>>>> DIRECTORY UNKNOWN request %s" % http.request.params)
 
         return _EMPTY_XML
